@@ -567,7 +567,7 @@ GCPoint self_t::drawTextSingle(const char* str, uint16_t len, GCRect rc, Anchor 
     clip(clip().intersection(rc));
 
     // draw text
-    drawTextSingle(str, len, pt, font, brushFg, brushBg);
+    auto result = drawTextSingle(str, len, pt, font, brushFg, brushBg);
 
     if (brushBg)
     {
@@ -600,6 +600,8 @@ GCPoint self_t::drawTextSingle(const char* str, uint16_t len, GCRect rc, Anchor 
 
     // restore clip
     clip(prev_clip);
+
+    return result;
 }
 
 

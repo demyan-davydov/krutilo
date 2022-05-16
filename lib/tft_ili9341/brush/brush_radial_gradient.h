@@ -11,18 +11,11 @@ class GCBrushRadialGradient : public GCBrush
     uint16_t c1; // color at center
     uint16_t c2; // color behind radius
     uint32_t ra2, rb2;
-    //float ra2, rb2;
     GCPoint center;
 
 public:
-    //GCBrushRadialGradient(uint16_t color1, uint16_t color2, GCPoint const& ptCenter, uint16_t radius1, uint16_t radius2) 
-    //: c1(color1), c2(color2), center(ptCenter), ra2(radius1*radius1), rb2(radius2*radius2) {}
-
-    //GCBrushRadialGradient(uint16_t color1, uint16_t color2, GCPoint const& ptCenter, float radius1, float radius2) 
-    //: c1(color1), c2(color2), center(ptCenter), ra2(radius1*radius1), rb2(radius2*radius2) {}
-
     GCBrushRadialGradient(uint16_t color1, uint16_t color2, GCPoint const& ptCenter, float radius1, float radius2) 
-    : c1(color1), c2(color2), center(ptCenter), ra2(radius1*radius1*16), rb2(radius2*radius2*16) {}
+    : c1(color1), c2(color2), ra2(radius1*radius1*16), rb2(radius2*radius2*16), center(ptCenter) {}
 
     uint16_t color(int x, int y) const override
     {
